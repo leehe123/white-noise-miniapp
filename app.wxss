@@ -1,0 +1,53 @@
+/**
+ * app.wxss - 全局样式 / 设计 token
+ * 母婴极简风：低饱和、柔色、大圆角、充足留白
+ */
+
+page {
+  /* ── 主题色（全部 6 位 hex，确保小程序解析正确） ── */
+  --bg:           #FBF7F2;
+  --bg-soft:      #F5EFE7;
+  --card:         #FFFFFF;
+  --primary:      #E8C4B8;   /* 莫兰迪粉 */
+  --primary-deep: #D9A89A;   /* 主色加深 */
+  --primary-light:#F5E0D8;   /* 主色浅 */
+  --accent:       #B8D8C2;
+  --accent-light: #D8EFDE;
+  --text:         #4A4A4A;
+  --text-sub:     #9E9184;
+  --text-tip:     #B8ADA0;
+  --border:       #F0E8DE;
+
+  /* ── 阴影 ── */
+  --shadow-sm: 0 2rpx 12rpx rgba( 0, 0, 0, 0.04);
+  --shadow-md: 0 6rpx 24rpx rgba( 0, 0, 0, 0.07);
+  --shadow-lg: 0 10rpx 40rpx rgba(232,196,184, 0.30);
+
+  /* ── 圆角 ── */
+  --radius-sm: 16rpx;
+  --radius:    24rpx;
+  --radius-lg: 32rpx;
+
+  /* ── 间距 ── */
+  --gap:   20rpx;
+  --gap-lg: 32rpx;
+
+  /* ── 字号 ── */
+  --fs-sm: 24rpx;
+  --fs:    28rpx;
+  --fs-md: 32rpx;
+  --fs-lg: 40rpx;
+
+  background : var(--bg);
+  color      : var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC",
+                 "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 隐藏滚动条 */
+::-webkit-scrollbar {
+  width : 0;
+  height: 0;
+  color : transparent;
+}

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "tips-marquee": "/components/tips-marquee/tips-marquee",
+    "cry-detector": "/components/cry-detector/cry-detector",
+    "sound-card": "/components/sound-card/sound-card"
+  }
+}

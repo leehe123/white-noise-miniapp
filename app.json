@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "白噪音哄睡",
+    "navigationBarBackgroundColor": "#FBF7F2",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#FBF7F2"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "requiredBackgroundModes": ["audio"],
+  "permission": {}
+}

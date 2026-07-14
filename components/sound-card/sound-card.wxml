@@ -1,0 +1,31 @@
+<!-- components/sound-card/sound-card.wxml -->
+<view
+  class="card {{playing ? 'is-playing' : ''}}"
+  hover-class="card--hover"
+  hover-start-time="0"
+  hover-stay-time="280"
+  bindtap="onTap"
+>
+  <!-- 图标 -->
+  <image
+    class="card__icon"
+    src="{{sound.icon}}"
+    mode="aspectFit"
+  />
+  <!-- 名称 -->
+  <view class="card__name">{{sound.name}}</view>
+
+  <!-- 水波纹特效（播放中） -->
+  <block wx:if="{{playing}}">
+    <view class="card__ripple"></view>
+    <view class="card__ripple card__ripple--2"></view>
+    <view class="card__ripple card__ripple--3"></view>
+  </block>
+
+  <!-- 播放指示器（右下角跳动竖条） -->
+  <view wx:if="{{playing}}" class="card__indicator">
+    <view class="card__bar"></view>
+    <view class="card__bar"></view>
+    <view class="card__bar"></view>
+  </view>
+</view>

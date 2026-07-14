@@ -1,0 +1,58 @@
+/* components/tips-marquee/tips-marquee.wxss */
+/* 母婴极简风 · 视觉升级 */
+
+.tips {
+  width: 100%;
+  padding: 18rpx 0 10rpx;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.tips__track {
+  width: 100%;
+  overflow: hidden;
+  /* 边缘渐隐 */
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 36rpx, #000 calc(100% - 36rpx), transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 36rpx, #000 calc(100% - 36rpx), transparent 100%);
+}
+
+.tips__marquee {
+  display: flex;
+  width: max-content;
+  white-space: nowrap;
+  animation: tips-scroll 22s linear infinite;
+  will-change: transform;
+}
+
+.tips__marquee:active {
+  animation-play-state: paused;
+}
+
+.tips__group {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding-right: 36rpx;
+}
+
+.tips__text {
+  display: inline-block;
+  font-size: var(--fs-sm);
+  color: var(--text-tip);
+  letter-spacing: 1rpx;
+  line-height: 1.6;
+  margin: 0 20rpx;
+}
+
+.tips__dot {
+  display: inline-block;
+  font-size: var(--fs-sm);
+  color: var(--text-tip);
+  opacity: 0.5;
+  margin: 0 4rpx;
+}
+
+@keyframes tips-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}

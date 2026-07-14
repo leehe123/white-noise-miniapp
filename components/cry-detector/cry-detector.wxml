@@ -1,0 +1,67 @@
+<!-- components/cry-detector/cry-detector.wxml -->
+<view class="cry">
+  <!-- 标题区 -->
+  <view class="cry__header">
+    <view class="cry__title">宝宝哭声识别</view>
+  </view>
+
+  <!-- ============ IDLE：点击录音 ============ -->
+  <view wx:if="{{status === 'idle'}}" class="cry__stage">
+    <view class="cry__btn" hover-class="cry__btn--hover" bindtap="onStartRecord">
+      <view class="cry__btn-icon">🎙️</view>
+      <view class="cry__btn-text">点击录音</view>
+    </view>
+  </view>
+
+  <!-- ============ RECORDING：倒计时 ============ -->
+  <view wx:elif="{{status === 'recording'}}" class="cry__stage">
+    <view class="cry__btn cry__btn--recording" bindtap="onCancelRecord">
+      <view class="cry__pulse"></view>
+      <view class="cry__pulse cry__pulse--delay"></view>
+      <view class="cry__btn-icon cry__btn-icon--recording">{{countdown}}</view>
+      <view class="cry__btn-text cry__btn-text--recording">点击取消</view>
+    </view>
+  </view>
+
+  <!-- ============ LOADING：等待识别 ============ -->
+  <view wx:elif="{{status === 'loading'}}" class="cry__stage cry__stage--loading">
+    <view class="cry__spinner">
+      <view class="cry__spinner-ring"></view>
+      <view class="cry__spinner-ring cry__spinner-ring--2"></view>
+      <view class="cry__spinner-ring cry__spinner-ring--3"></view>
+    </view>
+    <view class="cry__loading-text">AI 正在识别哭声...</view>
+    <view class="cry__loading-tip">首次调用可能需要 15-30 秒，请稍候</view>
+  </view>
+
+  <!-- ============ RESULT：结果 ============ -->
+  <view wx:elif="{{status === 'result'}}" class="cry__stage">
+    <view class="cry__result">
+      <view class="cry__result-emoji">{{result.emoji}}</view>
+      <view class="cry__result-label">宝宝可能是</view>
+      <view class="cry__result-name">{{result.name}}</view>
+      <view class="cry__result-confidence {{result.confidenceClass}}">
+        置信度 {{result.confidenceText}}
+      </view>
+      <view wx:if="{{result.lowConfidence}}" class="cry__result-warn">
+        识别不确定，建议再试一次
+      </view>
+      <view class="cry__result-tip">{{result.tip}}</view>
+    </view>
+    <view class="cry__btn cry__btn--small" hover-class="cry__btn--hover" bindtap="onReset">
+      <view class="cry__btn-text cry__btn-text--small">再录一次</view>
+    </view>
+  </view>
+
+  <!-- ============ ERROR：报错 ============ -->
+  <view wx:elif="{{status === 'error'}}" class="cry__stage">
+    <view class="cry__error">
+      <view class="cry__error-icon">⚠️</view>
+      <view class="cry__error-text">{{errorMsg}}</view>
+      <view wx:if="{{errorDetail}}" class="cry__error-detail">{{errorDetail}}</view>
+    </view>
+    <view class="cry__btn cry__btn--small" hover-class="cry__btn--hover" bindtap="onReset">
+      <view class="cry__btn-text cry__btn-text--small">重新录音</view>
+    </view>
+  </view>
+</view>

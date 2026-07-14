@@ -1,0 +1,20 @@
+# 微信小程序
+miniprogram_npm/
+*.wxapkg
+
+# 编辑器
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# 系统
+.DS_Store
+Thumbs.db
+
+# 私密配置
+project.private.config.json
+
+# 图片资源（非必须，可自行替换）
+images/sound-icons/*.png

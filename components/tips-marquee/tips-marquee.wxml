@@ -1,0 +1,16 @@
+<!-- components/tips-marquee/tips-marquee.wxml -->
+<!-- CSS 动画实现 marquee：速度恒定，无限循环 -->
+<view class="tips">
+  <view class="tips__track">
+    <view class="tips__marquee" style="animation-duration: {{duration}}s;">
+      <view class="tips__group">
+        <text class="tips__text" wx:for="{{tips}}" wx:key="*this" decode>{{item}}</text>
+        <text class="tips__dot">·</text>
+      </view>
+      <view class="tips__group" aria-hidden="true">
+        <text class="tips__text" wx:for="{{tips}}" wx:key="*this" decode>{{item}}</text>
+        <text class="tips__dot">·</text>
+      </view>
+    </view>
+  </view>
+</view>

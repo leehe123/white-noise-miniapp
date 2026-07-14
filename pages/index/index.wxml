@@ -1,0 +1,32 @@
+<!--pages/index/index.wxml-->
+<!--白噪音哄睡 · 母婴极简风 · 保留原始组件架构-->
+
+<view class="page">
+
+  <!-- Tips 滚动条 -->
+  <tips-marquee tips="{{tips}}" />
+
+  <!-- 哭声识别 -->
+  <cry-detector bind:result="onCryResult" />
+
+  <!-- 白噪音网格 -->
+  <view class="section-header">
+    <text class="section-title">白噪音</text>
+  </view>
+  <view class="noise-grid">
+    <view
+      class="noise-item"
+      wx:for="{{sounds}}"
+      wx:key="id"
+    >
+      <sound-card
+        sound="{{item}}"
+        playing="{{playingId === item.id}}"
+        bind:toggle="onSoundToggle"
+      />
+    </view>
+  </view>
+
+  <!-- 底部留白 -->
+  <view class="page-footer"></view>
+</view>

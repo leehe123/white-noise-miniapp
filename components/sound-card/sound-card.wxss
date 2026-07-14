@@ -1,0 +1,135 @@
+/* components/sound-card/sound-card.wxss */
+/* 母婴极简风 · 4列网格 · 视觉升级 + 水波纹 */
+
+/* ====== 卡片容器 ====== */
+.card {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;   /* 1:1 比例 */
+  height: 0;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.3s ease;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* 点击 hover 特效（微信 hover-class 触发） */
+.card--hover {
+  transform: scale(0.93) !important;
+  box-shadow: var(--shadow-md);
+  background: var(--bg-soft) !important;
+}
+
+/* 播放中状态：粉紫底色 + 放大 + 白字 */
+.card.is-playing {
+  background: linear-gradient(135deg, #E8C4B8 0%, #D9A89A 100%) !important;
+  box-shadow: 0 8rpx 36rpx rgba(217, 168, 154, 0.45);
+  transform: scale(1.05);
+}
+
+/* ====== 图标 ====== */
+.card__icon {
+  position: absolute;
+  left: 50%;
+  top: 14%;
+  width: 88rpx;
+  height: 88rpx;
+  transform: translateX(-50%);
+  transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+  opacity: 0.7;
+}
+
+/* 播放中：图标变白 + 放大 */
+.card.is-playing .card__icon {
+  filter: brightness(0) invert(1);
+  opacity: 1;
+  transform: translateX(-50%) scale(1.12);
+}
+
+/* ====== 名称 ====== */
+.card__name {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 68%;
+  font-size: var(--fs-sm);
+  color: var(--text);
+  letter-spacing: 1rpx;
+  text-align: center;
+  padding: 0 8rpx;
+  line-height: 1.3;
+  transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+/* 播放中：名称变白 + 加粗 */
+.card.is-playing .card__name {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+/* ====== 水波纹特效（播放中） ====== */
+/* 三层波纹，依次扩散消失 */
+.card__ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: -20rpx;
+  margin-left: -20rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  opacity: 0;
+  pointer-events: none;
+  animation: ripple-expand 2.8s ease-out infinite;
+}
+
+.card__ripple--2 {
+  animation-delay: 0.9s;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.card__ripple--3 {
+  animation-delay: 1.8s;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+@keyframes ripple-expand {
+  0% {
+    transform: scale(0.3);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(6);
+    opacity: 0;
+  }
+}
+
+/* ====== 播放指示器（右下角跳动竖条） ====== */
+.card__indicator {
+  position: absolute;
+  right: 12rpx;
+  bottom: 12rpx;
+  display: flex;
+  align-items: flex-end;
+  gap: 4rpx;
+  height: 24rpx;
+}
+
+.card__bar {
+  width: 5rpx;
+  border-radius: 3rpx;
+  background: #FFFFFF;
+  animation: bar-jump 1.0s ease-in-out infinite alternate;
+}
+
+.card__bar:nth-child(1) { height: 8rpx;  animation-delay: 0s; }
+.card__bar:nth-child(2) { height: 18rpx; animation-delay: 0.15s; }
+.card__bar:nth-child(3) { height: 12rpx; animation-delay: 0.3s; }
+
+@keyframes bar-jump {
+  0%   { transform: scaleY(0.4); opacity: 0.5; }
+  100% { transform: scaleY(1);   opacity: 1; }
+}
