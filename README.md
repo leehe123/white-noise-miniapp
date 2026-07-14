@@ -5,7 +5,8 @@
 ---
 
 ## 简介
-![Uploading e9b6ece2140523316d65365f7e1fd3e1.jpg…]()
+<img width="299" height="620" alt="image" src="https://github.com/user-attachments/assets/3047c3af-321f-4cf6-ba6a-a758c2276add" />
+
 
 这是一款面向 0~3 岁宝宝家长的**纯前端微信小程序**，包含两大核心功能：
 
